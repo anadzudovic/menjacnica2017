@@ -8,6 +8,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.LinkedList;
 
+import menjacnica.interfejs.MenjacnicaInterface;
 import sistemske_operacije.SODodajValutu;
 import sistemske_operacije.SOIzvrsiTransakciju;
 import sistemske_operacije.SOObrisiValutu;
@@ -19,7 +20,7 @@ public class Menjacnica implements MenjacnicaInterface{
 	private LinkedList<Valuta> kursnaLista = new LinkedList<Valuta>();
 
 	@Override
-	public void dodajValutu(Valuta valuta) {
+	public  void dodajValutu(Valuta valuta) {
 		SODodajValutu.izvrsi(valuta, kursnaLista);		
 	}
 
