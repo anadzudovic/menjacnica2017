@@ -10,13 +10,14 @@ import javax.swing.JOptionPane;
 
 import menjacnica.Menjacnica;
 import menjacnica.Valuta;
+import menjacnica.interfejs.MenjacnicaInterface;
 
 public class GUIKontroler {
 	private static MenjacnicaGUI frame;
 	private static DodajKursGUI dodajKursGUI;
 	private static ObrisiKursGUI obrisiKursGUI;
 	private static IzvrsiZamenuGUI izvrsiZamenuGUI;
-	private static Menjacnica sistem;
+	private static MenjacnicaInterface sistem;
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -33,19 +34,19 @@ public class GUIKontroler {
 		});
 	}
 	public static void prikaziDodajKursGUI(){
-		dodajKursGUI = new DodajKursGUI(frame);
+		dodajKursGUI = new DodajKursGUI();
 		dodajKursGUI.setVisible(true);
 		dodajKursGUI.setLocationRelativeTo(frame);
 		
 		}
 	public static void prikaziObrisiKursGUI(Valuta v){
-		obrisiKursGUI = new ObrisiKursGUI(frame, v);
+		obrisiKursGUI = new ObrisiKursGUI(v);
 		obrisiKursGUI.setVisible(true);
 		obrisiKursGUI.setLocationRelativeTo(frame);
 		
 		}
 	public static void prikaziIzvrsiZamenuGUI(Valuta v){
-		izvrsiZamenuGUI = new IzvrsiZamenuGUI(frame, v);
+		izvrsiZamenuGUI = new IzvrsiZamenuGUI( v);
 		izvrsiZamenuGUI.setVisible(true);
 		izvrsiZamenuGUI.setLocationRelativeTo(frame);
 		
@@ -65,6 +66,7 @@ public class GUIKontroler {
 	 			JOptionPane.showMessageDialog(frame, e1.getMessage(),"Greska", JOptionPane.ERROR_MESSAGE);
 	 		}
 	 	}
+    
          public static void sacuvajUFajl() {
         	 		try {
         	 			JFileChooser fc = new JFileChooser();
